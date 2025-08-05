@@ -1,16 +1,41 @@
 {
   "functions": {
-    "*.php": {
+    "api/*.php": {
       "runtime": "vercel-php@0.6.0"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "/$1"
+      "source": "/",
+      "destination": "/api/index.php"
+    },
+    {
+      "source": "/cart",
+      "destination": "/api/cart.php"
+    },
+    {
+      "source": "/login",
+      "destination": "/api/customer_login.php"
+    },
+    {
+      "source": "/register",
+      "destination": "/api/customer_register.php"
+    },
+    {
+      "source": "/products",
+      "destination": "/api/all_products.php"
+    },
+    {
+      "source": "/checkout",
+      "destination": "/api/checkout.php"
+    },
+    {
+      "source": "/payment",
+      "destination": "/api/payment.php"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/api/$1"
     }
-  ],
-  "env": {
-    "PHP_VERSION": "8.1"
-  }
+  ]
 } 
